@@ -1,10 +1,10 @@
 # Playwright Test Automation Portfolio
 
-A comprehensive Playwright test automation project demonstrating various testing techniques, patterns, and best practices for web application testing.
+A Playwright test automation project demonstrating various testing techniques, patterns, and practices for web application testing.
 
 ## 📋 Overview
 
-This project showcases my expertise in Playwright test automation through a diverse collection of test scenarios covering API testing, web element interactions, authentication flows, visual regression testing, and end-to-end user journeys. The tests are organized by functionality and demonstrate practical, real-world testing scenarios.
+This project showcases my ability to utilize Playwright test automation through a diverse collection of test scenarios covering API testing, web element interactions, authentication flows, visual regression testing, and end-to-end user journeys. The tests are organized by functionality and demonstrate practical, real-world testing scenarios.
 
 ## 🚀 Features & Test Scenarios
 
@@ -61,7 +61,7 @@ This project showcases my expertise in Playwright test automation through a dive
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd portfolio
+   cd playwright
    ```
 
 2. **Install dependencies**
@@ -206,6 +206,6 @@ ISC
 
 ---
 
-**Author**: [Your Name]  
-**Purpose**: Portfolio project showcasing Playwright test automation expertise
+**Author**: Pat McDaniel  
+**Purpose**: Refreshing usage of Playwright test automation since it's been a minute since I've used it
 
