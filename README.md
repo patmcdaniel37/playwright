@@ -36,6 +36,7 @@ This project showcases my ability to utilize Playwright test automation through 
 
 ### Customer Scenarios & E2E Testing
 - **End-to-End User Journeys**: Complete customer flows from login to checkout
+- **Page Object Model (POM)**: Implementing POM pattern with BasePage and page-specific classes
 - **Serial Test Execution**: Running dependent tests in sequence using `test.describe.serial`
 - **Test Steps**: Organizing complex scenarios into reusable test steps
 - **Shopping Cart Workflows**: Testing add-to-cart, checkout, and order completion
@@ -124,11 +125,19 @@ npx playwright show-report
 ## 📁 Project Structure
 
 ```
-portfolio/
+playwright/
+├── pages/                            # Page Object Model classes
+│   ├── BasePage.ts                   # Base page class with common methods
+│   ├── LoginPage.ts                  # Login page object
+│   ├── ProductPage.ts                # Products page object
+│   ├── CartPage.ts                   # Shopping cart page object
+│   ├── CheckoutPage.ts               # Checkout page object
+│   └── ConfirmationPage.ts           # Order confirmation page object
 ├── tests/
 │   ├── API Test/
 │   │   └── APITest.spec.ts          # API testing scenarios
 │   ├── CustomerScenarios/
+│   │   ├── CustomerScenarioUsingPOM.spec.ts
 │   │   ├── CustomerScenarioUsingDescribeSerial.spec.ts
 │   │   └── CustomerScenarioUsingTestSteps.spec.ts
 │   ├── TestingWithScreenshots/
@@ -152,7 +161,7 @@ portfolio/
 └── README.md                        # Project documentation
 ```
 
-## 🎯 Key Testing Skills Demonstrated
+## 🎯 Key Testing Skills Covered
 
 - ✅ **Page Object Model** patterns
 - ✅ **Data-Driven Testing** with arrays and CSV files
@@ -198,7 +207,7 @@ The Playwright configuration (`playwright.config.ts`) includes:
 
 ## 🤝 Contributing
 
-This is a portfolio project demonstrating Playwright testing capabilities. Feel free to use it as a reference or learning resource.
+This is a learning/refresher project for Playwright test automation. Feel free to use it as a reference or learning resource.
 
 ## 📄 License
 
