@@ -1,5 +1,13 @@
 import {test, expect} from '@playwright/test';
 
+test.beforeEach(async ({ page }, testInfo) => {
+    console.log(`Starting test: ${testInfo.title}`);
+});
+
+test.afterEach(async ({ page }, testInfo) => {
+    console.log(`Test Completed: ${testInfo.title}`);
+});
+
 /*
 Test to handle file upload web element
 - Opens webpage
@@ -7,7 +15,7 @@ Test to handle file upload web element
 - Validates state change
 */
 test('File Upload', async({page}) =>{
-    await page.goto(`${process.env.THE_INTERNET_URL}`);
+    await page.goto(`${process.env.THE_INTERNET_URL_HEROKUAPP}`);
     await page.locator('text=File Upload').click();
     await page.locator('#file-upload').setInputFiles('tests/testFiles/uploadTestFile.txt');
     await page.locator('#file-submit').click();    
@@ -24,7 +32,7 @@ Test to handle file download web element
 - Validatation is done outside the test as it's browser functionality
 */
 test('File Download', async({page}) =>{
-    await page.goto(`${process.env.THE_INTERNET_URL}`);
+    await page.goto(`${process.env.THE_INTERNET_URL_HEROKUAPP}`);
     await page.locator('text=File Download').first().click();
-    await page.locator('a[href="download/test.csv"]').click();
+    await page.locator('a[href="download/uploadTestFile.txt"]').click();
 })

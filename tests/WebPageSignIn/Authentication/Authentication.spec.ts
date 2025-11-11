@@ -1,11 +1,15 @@
 import {test, expect} from '@playwright/test';
 
-test.beforeEach(async ({page}) => {
+test.beforeEach(async ({ page }, testInfo) => {
+    console.log(`Starting test: ${testInfo.title}`);
     // Launching the SAUCE DEMO PAGE
     console.log('Launching the SAUCE DEMO PAGE');
     await page.goto(`${process.env.SAUCE_DEMO_URL}`);
 });
 
+test.afterEach(async ({ page }, testInfo) => {
+    console.log(`Test Completed: ${testInfo.title}`);
+});
 /* Runs a user log in scenario test in order
     User can successfully log in
     User can not log in using an invalid name

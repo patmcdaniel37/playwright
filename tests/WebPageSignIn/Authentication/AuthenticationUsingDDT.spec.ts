@@ -1,5 +1,13 @@
 import { test, expect } from '@playwright/test';
 
+test.beforeEach(async ({ page }, testInfo) => {
+    console.log(`Starting test: ${testInfo.title}`);
+});
+
+test.afterEach(async ({ page }, testInfo) => {
+    console.log(`Test Completed: ${testInfo.title}`);
+});
+
 const testData = [
   { username: 'standard_user', password: 'secret_sauce', expected: 'success' },
   { username: 'locked_out_user', password: 'secret_sauce', expected: 'locked' },

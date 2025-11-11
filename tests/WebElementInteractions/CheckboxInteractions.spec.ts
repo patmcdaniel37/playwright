@@ -1,5 +1,13 @@
 import { test, expect } from "playwright/test";
 
+test.beforeEach(async ({ page }, testInfo) => {
+    console.log(`Starting test: ${testInfo.title}`);
+});
+
+test.afterEach(async ({ page }, testInfo) => {
+    console.log(`Test Completed: ${testInfo.title}`);
+});
+
 /*
 Test to handle Checkbox Interaction
 - Opens webpage
