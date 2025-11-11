@@ -36,7 +36,7 @@ This project showcases my ability to utilize Playwright test automation through 
 
 ### Customer Scenarios & E2E Testing
 - **End-to-End User Journeys**: Complete customer flows from login to checkout
-- **Page Object Model (POM)**: Implementing POM pattern with BasePage and page-specific classes
+- **Page Object Model (POM)**: Implementing POM pattern with BasePage and organized page-specific classes by application (e.g., SauceDemo/)
 - **Serial Test Execution**: Running dependent tests in sequence using `test.describe.serial`
 - **Test Steps**: Organizing complex scenarios into reusable test steps
 - **Shopping Cart Workflows**: Testing add-to-cart, checkout, and order completion
@@ -128,11 +128,12 @@ npx playwright show-report
 playwright/
 ├── pages/                            # Page Object Model classes
 │   ├── BasePage.ts                   # Base page class with common methods
-│   ├── LoginPage.ts                  # Login page object
-│   ├── ProductPage.ts                # Products page object
-│   ├── CartPage.ts                   # Shopping cart page object
-│   ├── CheckoutPage.ts               # Checkout page object
-│   └── ConfirmationPage.ts           # Order confirmation page object
+│   └── SauceDemo/                    # SauceDemo application page objects
+│       ├── LoginPage.ts              # Login page object
+│       ├── ProductPage.ts            # Products page object
+│       ├── CartPage.ts               # Shopping cart page object
+│       ├── CheckoutPage.ts           # Checkout page object
+│       └── ConfirmationPage.ts       # Order confirmation page object
 ├── tests/
 │   ├── API Test/
 │   │   └── APITest.spec.ts          # API testing scenarios

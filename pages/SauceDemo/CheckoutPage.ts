@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../BasePage';
 
 export class CheckoutPage extends BasePage {
     private firstNameInput = this.page.locator('[data-test="firstName"]');

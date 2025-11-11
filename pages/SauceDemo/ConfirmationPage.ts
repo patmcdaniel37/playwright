@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../BasePage';
 
 export class ConfirmationPage extends BasePage {
     private completeHeader = this.page.locator('.complete-header');

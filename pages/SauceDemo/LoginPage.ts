@@ -1,5 +1,5 @@
 import { expect, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../BasePage';
 
 export class LoginPage extends BasePage {
   private usernameInput = this.page.getByPlaceholder('Username');

@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from '../BasePage';
 
 export class ProductsPage extends BasePage {
     private addToCartButton = this.page.locator('[data-test^="add-to-cart"]');

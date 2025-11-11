@@ -1,9 +1,9 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../../pages/LoginPage';
-import { ProductsPage } from '../../pages/ProductPage';
-import { CartPage } from '../../pages/CartPage';
-import { CheckoutPage } from '../../pages/CheckoutPage';
-import { ConfirmationPage } from '../../pages/ConfirmationPage';
+import { LoginPage } from '../../pages/SauceDemo/LoginPage';
+import { ProductsPage } from '../../pages/SauceDemo/ProductPage';
+import { CartPage } from '../../pages/SauceDemo/CartPage';
+import { CheckoutPage } from '../../pages/SauceDemo/CheckoutPage';
+import { ConfirmationPage } from '../../pages/SauceDemo/ConfirmationPage';
 
 test('Complete purchase flow', async ({ page }) => {
     const loginPage = new LoginPage(page);
