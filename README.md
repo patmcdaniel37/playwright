@@ -1,5 +1,11 @@
 # Playwright Test Automation Portfolio
 
+![Playwright Tests](https://github.com/patmcdaniel37/playwright/actions/workflows/playwright.yml/badge.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)
+![Playwright](https://img.shields.io/badge/Playwright-1.47-green)
+![Node.js](https://img.shields.io/badge/Node.js-20-green)
+![License](https://img.shields.io/badge/License-ISC-yellow)# Playwright Test Automation Portfolio
+
 A Playwright test automation project demonstrating various testing techniques, patterns, and practices for web application testing.
 
 ## 📋 Overview
