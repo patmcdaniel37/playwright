@@ -54,7 +54,13 @@ jobs:
           name: playwright-report-mac
           path: playwright-report/
           retention-days: 30
-        
+
+      - name: Upload updated snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-snapshots
+          path: tests/TestingWithScreenshots/ValidateScreenshot.spec.ts-snapshots/
+          
       - name: Upload screenshots
         uses: actions/upload-artifact@v4
         if: failure()
@@ -91,6 +97,12 @@ jobs:
           path: playwright-report/
           retention-days: 30
         
+      - name: Upload updated snapshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: updated-snapshots
+          path: tests/TestingWithScreenshots/ValidateScreenshot.spec.ts-snapshots/
+            
       - name: Upload screenshots
         uses: actions/upload-artifact@v4
         if: failure()
