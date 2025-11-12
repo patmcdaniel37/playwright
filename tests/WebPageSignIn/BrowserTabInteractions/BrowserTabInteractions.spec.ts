@@ -19,6 +19,9 @@ test.describe('Multiple Tabs/Browser Tests', () => {
         const context = await browser.newContext();
         const firstTab = await context.newPage();
 
+        const sauceUrl = (process.env.SAUCE_DEMO_URL || "").trim();
+        if (!sauceUrl) throw new Error("SAUCE_DEMO_URL is not set in CI. Set it in .github/workflows/playwright.yml");
+        
         firstTab.goto(`${process.env.SAUCE_DEMO_URL}`);
         await expect(firstTab).toHaveTitle(`${process.env.SAUCE_DEMO_TAB_NAME}`);
 
@@ -35,6 +38,9 @@ test.describe('Multiple Tabs/Browser Tests', () => {
     */
     test('Open Multiple Windows', {tag : ['@Regression']}, async({page, browser})=>{
     
+        const sauceUrl = (process.env.SAUCE_DEMO_URL || "").trim();
+        if (!sauceUrl) throw new Error("SAUCE_DEMO_URL is not set in CI. Set it in .github/workflows/playwright.yml");
+        
         await page.goto(`${process.env.SAUCE_DEMO_URL}`);
         await expect(page).toHaveTitle(`${process.env.SAUCE_DEMO_TAB_NAME}`);
 

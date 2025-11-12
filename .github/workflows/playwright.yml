@@ -12,23 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       TEST_EXECUTION_ENV: qa
-      SAUCE_DEMO_URL: https://www.saucedemo.com/
-      SAUCE_DEMO_TAB_NAME: 'Swag Labs'
-      DEMO_QA_URL: https://demoqa.com
-      JQUERY_URL: https://jqueryui.com
-      JQUERY_TAB_NAME: 'jQuery UI'
-      THE_INTERNET_URL_HEROKUAPP: https://the-internet.herokuapp.com
-      PASSWORD: secret_sauce
-      STANDARD_USER: standard_user
-      INVALID_USER: invalid_user
-      LOCKED_OUT_USER: locked_out_user
-      PROBLEM_USER: problem_user
-      PERFORMANCE_GLITCH_USER: performance_glitch_user
-      ERROR_USER: error_user
-      VISUAL_USER: visual_user
-      USER_FIRST_NAME: RandomFN
-      USER_LAST_NAME: RandomLN
-      ZIP_CODE: 12345
+      SAUCE_DEMO_URL: "https://www.saucedemo.com"
+      SAUCE_DEMO_TAB_NAME: "Swag Labs"
+      DEMO_QA_URL: "https://demoqa.com"
+      JQUERY_URL: "https://jqueryui.com"
+      JQUERY_TAB_NAME: "jQuery UI"
+      THE_INTERNET_URL_HEROKUAPP: "https://the-internet.herokuapp.com"
+      PASSWORD: "secret_sauce"
+      STANDARD_USER: "standard_user"
+      INVALID_USER: "invalid_user"
+      LOCKED_OUT_USER: "locked_out_user"
+      PROBLEM_USER: "problem_user"
+      PERFORMANCE_GLITCH_USER: "performance_glitch_user"
+      ERROR_USER: :error_user"
+      VISUAL_USER: "visual_user"
+      USER_FIRST_NAME: "RandomFN"
+      USER_LAST_NAME: "RandomLN"
+      ZIP_CODE: "12345"
     
     steps:
       - name: Checkout code
@@ -47,11 +47,7 @@ jobs:
       
       - name: Run Playwright tests
         run: npm test
-        env:
-          SAUCE_DEMO_URL: ${{ secrets.SAUCE_DEMO_URL }}
-          STANDARD_USER: ${{ secrets.STANDARD_USER }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-      
+     
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
