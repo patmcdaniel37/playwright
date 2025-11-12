@@ -47,8 +47,8 @@ jobs:
       - name: List snapshot files
         run: ls -lR tests/TestingWithScreenshots
         
-      - name: Run Playwright tests
-        run: npm test
+      - name: Run Playwright tests and update snapshots
+        run: npx playwright test --update-snapshots        
         
       - name: Upload test results
         uses: actions/upload-artifact@v4
