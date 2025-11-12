@@ -43,6 +43,9 @@ jobs:
         
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: List snapshot files
+        run: ls -lR tests/TestingWithScreenshots
         
       - name: Run Playwright tests
         run: npm test
@@ -79,6 +82,9 @@ jobs:
         
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: List snapshot files
+        run: ls -lR tests/TestingWithScreenshots
         
       - name: Run Playwright tests
         run: npm test
