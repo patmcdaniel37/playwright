@@ -44,9 +44,6 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: List snapshot files
-        run: ls -lR tests/TestingWithScreenshots
-        
       - name: Run Playwright tests and update snapshots
         run: npx playwright test --update-snapshots        
         
@@ -54,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: playwright-report-mac
           path: playwright-report/
           retention-days: 30
         
@@ -62,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: test-failures
+          name: test-failures-mac
           path: test-results/
           retention-days: 7
 
@@ -83,9 +80,6 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: List snapshot files
-        run: ls -lR tests/TestingWithScreenshots
-        
       - name: Run Playwright tests and update snapshots
         run: npx playwright test --update-snapshots        
         
@@ -93,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: playwright-report-linux
           path: playwright-report/
           retention-days: 30
         
@@ -101,6 +95,6 @@ jobs:
         uses: actions/upload-artifact@v4
         if: failure()
         with:
-          name: test-failures
+          name: test-failures-linux
           path: test-results/
           retention-days: 7
