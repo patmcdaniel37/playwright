@@ -58,7 +58,7 @@ jobs:
       - name: Upload updated snapshots
         uses: actions/upload-artifact@v4
         with:
-          name: updated-snapshots
+          name: updated-snapshots-mac
           path: tests/TestingWithScreenshots/ValidateScreenshot.spec.ts-snapshots/
           
       - name: Upload screenshots
@@ -100,7 +100,7 @@ jobs:
       - name: Upload updated snapshots
         uses: actions/upload-artifact@v4
         with:
-          name: updated-snapshots
+          name: updated-snapshots-linux
           path: tests/TestingWithScreenshots/ValidateScreenshot.spec.ts-snapshots/
             
       - name: Upload screenshots
