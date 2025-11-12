@@ -49,46 +49,35 @@ export default defineConfig({
     video: 'on', //'retain-on-failure',
   },
 
-  /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
-
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-
-    // {
-    //   name: 'Safari',
-    //   use: {
-    //     browserName: 'webkit',
-    //     ...devices['Desktop Safari'],
-    //   },
-    //   // name: 'webkit',
-    //   // use: { ...devices['Desktop Safari'] },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
+    // Linux: Chrome and Firefox
     {
-      name: 'Google Chrome',
+      name: 'Chrome on Linux',
       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    },
+    {
+      name: 'Firefox on Linux',
+      use: { ...devices['Desktop Firefox'] },
+    },
+
+    // Mac: Chrome and Safari
+    {
+      name: 'Chrome on Mac',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    },
+    {
+      name: 'Safari on Mac',
+      use: { ...devices['Desktop Safari'] },
+    },
+
+    // Windows: Chrome and Edge
+    {
+      name: 'Chrome on Windows',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    },
+    {
+      name: 'Edge on Windows',
+      use: { ...devices['Desktop Edge'], channel: 'msedge' },
     },
   ],
 

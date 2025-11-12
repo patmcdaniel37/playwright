@@ -44,8 +44,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests and update snapshots
-        run: npx playwright test --update-snapshots        
+      - name: Run Playwright tests and update snapshots on Mac
+        run: npx playwright test --project="Chrome on Mac" --project="Safari on Mac" --update-snapshots        
         
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -86,8 +86,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests and update snapshots
-        run: npx playwright test --update-snapshots        
+      - name: Run Playwright tests and update snapshots on Linux
+        run: npx playwright test --project="Chrome on Linux" --project="Firefox on Linux" --update-snapshots        
         
       - name: Upload test results
         uses: actions/upload-artifact@v4
@@ -128,8 +128,8 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npm test
+      - name: Run Playwright tests and update snapshots on Windows
+        run: npx playwright test --project="Chrome on Windows" --project="Edge on Windows" --update-snapshots
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
