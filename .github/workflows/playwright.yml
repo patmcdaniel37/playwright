@@ -6,48 +6,47 @@ on:
   pull_request:
     branches: [ main ]
 
-jobs:
-  test:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    env: 
-      TEST_EXECUTION_ENV: qa
-      SAUCE_DEMO_URL: "https://www.saucedemo.com"
-      SAUCE_DEMO_TAB_NAME: "Swag Labs"
-      DEMO_QA_URL: "https://demoqa.com"
-      JQUERY_URL: "https://jqueryui.com"
-      JQUERY_TAB_NAME: "jQuery UI"
-      THE_INTERNET_URL_HEROKUAPP: "https://the-internet.herokuapp.com"
-      PASSWORD: "secret_sauce"
-      STANDARD_USER: "standard_user"
-      INVALID_USER: "invalid_user"
-      LOCKED_OUT_USER: "locked_out_user"
-      PROBLEM_USER: "problem_user"
-      PERFORMANCE_GLITCH_USER: "performance_glitch_user"
-      ERROR_USER: :error_user"
-      VISUAL_USER: "visual_user"
-      USER_FIRST_NAME: "RandomFN"
-      USER_LAST_NAME: "RandomLN"
-      ZIP_CODE: "12345"
+env: 
+  TEST_EXECUTION_ENV: qa
+  SAUCE_DEMO_URL: "https://www.saucedemo.com"
+  SAUCE_DEMO_TAB_NAME: "Swag Labs"
+  DEMO_QA_URL: "https://demoqa.com"
+  JQUERY_URL: "https://jqueryui.com"
+  JQUERY_TAB_NAME: "jQuery UI"
+  THE_INTERNET_URL_HEROKUAPP: "https://the-internet.herokuapp.com"
+  PASSWORD: "secret_sauce"
+  STANDARD_USER: "standard_user"
+  INVALID_USER: "invalid_user"
+  LOCKED_OUT_USER: "locked_out_user"
+  PROBLEM_USER: "problem_user"
+  PERFORMANCE_GLITCH_USER: "performance_glitch_user"
+  ERROR_USER: "error_user"
+  VISUAL_USER: "visual_user"
+  USER_FIRST_NAME: "RandomFN"
+  USER_LAST_NAME: "RandomLN"
+  ZIP_CODE: "12345"
     
+jobs:
+  test-on-mac:
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-      
+        
       - name: Install dependencies
         run: npm ci
-      
+        
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      
+        
       - name: Run Playwright tests
         run: npm test
-     
+        
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
@@ -55,7 +54,43 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      
+        
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-failures
+          path: test-results/
+          retention-days: 7
+
+  test-on-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+        
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+        
+      - name: Run Playwright tests
+        run: npm test
+        
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+        
       - name: Upload screenshots
         uses: actions/upload-artifact@v4
         if: failure()
